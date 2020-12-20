@@ -8,11 +8,20 @@
     "start": "NODE_ENV=production next start -p $PORT"
   },
   "dependencies": {
+    "@prisma/client": "^2.13.1",
     "next": "10.0.3",
+    "pg": "^8.5.1",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },
   "engines": {
     "node": "15.x"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.13.1",
+    "@types/node": "^14.14.14",
+    "@types/react": "^17.0.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
   }
 }
