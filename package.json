@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "postinstall": "npx prisma generate",
+    "heroku-postbuild": "next build && npx prisma generate",
     "build": "next build",
     "start": "NODE_ENV=production next start -p $PORT"
   },
