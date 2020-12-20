@@ -25,7 +25,7 @@ export default function Home({servers}) {
 }
 
 export async function getStaticProps() {
-  const servers = await (await prisma.servers.findMany()).map(server => {
+  const servers = (await prisma.servers.findMany()).map(server => {
     return {
       server: server.name,
       server_id: server.id
