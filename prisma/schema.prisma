@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["nativeTypes"]
 }
 
 datasource db {
@@ -8,6 +9,7 @@ datasource db {
 }
 
 model servers {
-  id   Int    @id
-  name String
+  id   BigInt  @id @db.BigInt
+  name String  @db.VarChar(100)
+  icon String? @db.VarChar(32)
 }
