@@ -10,6 +10,6 @@ datasource db {
 
 model servers {
   id   BigInt  @id @db.BigInt
-  name String  @db.VarChar(100)
-  icon String? @db.VarChar(32)
+  name String  @db.Text
+  icon String? @db.Text
 }
