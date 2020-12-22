@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import React, { FunctionComponent } from "react";
+import { useTheme } from '@material-ui/core/styles';
 
 const discord_link = "https://cdn.discordapp.com/";
 
@@ -24,9 +25,10 @@ const ServerCard: FunctionComponent<ServerCardProps> = ({
   serverId,
   serverIcon,
 }: ServerCardProps) => {
+  const theme = useTheme()
   return (
     <Grid item xs={12} sm={6} md={3} key={serverId}>
-      <Card variant="elevation" style={{ margin: "8px" }}>
+      <Card variant="elevation" style={{ margin: `${theme.spacing()}px` }}>
         <Link href={"/servers/" + serverId}>
           <CardActionArea>
             <CardMedia
@@ -37,7 +39,7 @@ const ServerCard: FunctionComponent<ServerCardProps> = ({
             />
             <CardContent>
               <Typography variant="h4" color="textPrimary">
-                {serverName}
+                {`${serverName}`}
               </Typography>
             </CardContent>
           </CardActionArea>

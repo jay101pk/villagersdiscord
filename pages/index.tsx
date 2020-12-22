@@ -1,19 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 
 import { PrismaClient } from "@prisma/client";
 import { GetStaticProps } from "next";
 import {
   AppBar,
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Container,
   Grid,
   Toolbar,
   Typography,
@@ -22,8 +12,6 @@ import React from "react";
 import ServerCard from "../src/components/serverCard";
 
 const prisma = new PrismaClient();
-
-const discord_link = "https://cdn.discordapp.com/";
 
 export default function Home({ servers }) {
   return (
@@ -37,7 +25,7 @@ export default function Home({ servers }) {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h2" align="left">
-              Welcome to website for a discord bot{" "}
+              Welcome to website for a discord bot
             </Typography>
           </Toolbar>
         </AppBar>
@@ -50,13 +38,12 @@ export default function Home({ servers }) {
           alignItems="center"
         >
           {servers.map(({ server, serverId, serverIcon }) => (
-            <>
               <ServerCard
                 serverName={server}
                 serverIcon={serverIcon}
                 serverId={serverId}
+                key={serverId}
               />
-            </>
           ))}
         </Grid>
       </main>
@@ -64,7 +51,7 @@ export default function Home({ servers }) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetStaticProps = async () => {
   const servers = (await prisma.servers.findMany()).map((server) => {
     return {
       server: server.name,
