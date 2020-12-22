@@ -16,9 +16,6 @@
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },
-  "engines": {
-    "node": "14.x"
-  },
   "devDependencies": {
     "@prisma/cli": "^2.13.1",
     "@types/node": "^14.14.14",
